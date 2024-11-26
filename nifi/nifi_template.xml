@@ -1,0 +1,17 @@
+<template>
+  <group name="KafkaPipeline">
+    <!-- GetFile processor -->
+    <processor name="GetFile">
+      <property name="Input Directory">/path/to/data</property>
+    </processor>
+    <!-- ValidateRecord processor -->
+    <processor name="ValidateRecord">
+      <property name="Schema">...</property>
+    </processor>
+    <!-- PublishKafka_2_0 processor -->
+    <processor name="PublishKafka_2_0">
+      <property name="Topic Name">raw-sensor-data</property>
+      <property name="Kafka Brokers">localhost:9092</property>
+    </processor>
+  </group>
+</template>
