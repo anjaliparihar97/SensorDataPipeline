@@ -70,12 +70,15 @@ SensorDataPipeline/
 
 ### **1. Clone the Repository**
 
+Clone the repository and navigate to the project directory:
+
+
 git clone https://github.com/anjaliparihar97/SensorDataPipeline.git
 cd SensorDataPipeline
 
 
 ## **Features**
-- Real-time data processing from input files.
+ - Real-time data processing from input files.
 - Validation of data using NiFi.
 - Scalable message transport with Kafka.
 - Aggregated metrics and raw data storage in PostgreSQL.
@@ -91,11 +94,6 @@ cd SensorDataPipeline
 ---
 
 ## **Setup Instructions**
-
-### **1. Clone the Repository**
-```bash
-git clone https://github.com/your_username/occupancy_data_pipeline.git
-cd occupancy_data_pipeline
 
 
 
