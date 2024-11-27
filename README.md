@@ -31,8 +31,48 @@ This project demonstrates a real-time data pipeline for processing the **Occupan
    - Stores:
      - Raw data: `raw_sensor_data`
      - Processed data: `processed_sensor_data`
+    
+     
 
 ---
+SensorDataPipeline/
+├── Data/
+├── Database/
+├── Ingestion/
+├── Monitor/
+├── docs/
+├── nifi/
+├── README.md
+├── requirements.txt
+
+
+
+### **Folder Details**
+
+| **Folder/File**         | **Description**                                                                                 |
+|--------------------------|-------------------------------------------------------------------------------------------------|
+| [Data](./Data/)          | Contains raw CSV files for the pipeline to process.                                            |
+| [Database](./Database/)  | SQL scripts for setting up the PostgreSQL database schema and tables.                          |
+| [Ingestion](./Ingestion/)| Python scripts to ingest and process data from Kafka to PostgreSQL.                            |
+| [Monitor](./Monitor/)    | Python scripts to monitor the folder and send data to Kafka.                                   |
+| [docs](./docs/)          | Contains the architecture diagram and additional documentation.                                |
+| [nifi](./nifi/)          | Apache NiFi templates for automating data flow.                                                |
+| [README.md](./README.md) | This file, which provides instructions for running and scaling the project.                    |
+| [requirements.txt](./requirements.txt)| Python dependencies for running the scripts.                                     |
+
+---
+
+
+
+---
+
+## **How to Run the Pipeline**
+
+### **1. Clone the Repository**
+```bash
+git clone https://github.com/anjaliparihar97/SensorDataPipeline.git
+cd SensorDataPipeline
+
 
 ## **Features**
 - Real-time data processing from input files.
@@ -59,25 +99,25 @@ cd occupancy_data_pipeline
 
 
 
-2. Install Dependencies
+### ** 2. Install Dependencies
 
 Install the required Python libraries:
 
 pip install -r requirements.txt
 
-3. Set Up PostgreSQL
+### **3. Set Up PostgreSQL
 
 Run the setup script to create the database and tables:
 
 psql -U postgres -f database/postgres_setup.sql
 
-4. Set Up and Start Kafka
+### **4. Set Up and Start Kafka
 
 Start Kafka and create the required topics:
 
 bash setup/kafka_setup.sh
 
-5. Start NiFi
+### **5. Start NiFi
 
 Start Apache NiFi and import the pipeline template:
 
@@ -87,20 +127,20 @@ bash setup/nifi_setup.sh
     Import the nifi_template.xml file from the nifi/ folder.
     Update the GetFile Processor to monitor the data/ folder.
 
-6. Run the Monitor Script
+### **6. Run the Monitor Script
 
 The Monitor script observes the data/ folder for new CSV files and sends them to Kafka.
 
 python monitor/monitor.py
 
-7. Run the Ingestion Script
+### **7. Run the Ingestion Script
 
 The Ingestion script reads data from Kafka, processes it, and stores it in PostgreSQL:
 
 python ingestion/ingestion.py
 
-Testing the Pipeline
-Step 1: Add Sample Files
+## **Testing the Pipeline
+### **Step 1: Add Sample Files
 
 Place CSV files in the data/ folder. Example file:
 
@@ -108,7 +148,7 @@ timestamp,temperature,humidity,light,CO2,occupancy
 2023-11-22 10:00:00,22.5,60,120,400,1
 2023-11-22 10:05:00,23.0,58,110,420,0
 
-Step 2: Monitor the Pipeline
+### **Step 2: Monitor the Pipeline
 
     NiFi UI: Check file ingestion and validation progress.
     Kafka Logs: Verify that data is being sent to the raw-sensor-data topic.
