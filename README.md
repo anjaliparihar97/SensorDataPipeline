@@ -69,7 +69,7 @@ SensorDataPipeline/
 ## **How to Run the Pipeline**
 
 ### **1. Clone the Repository**
-```bash
+
 git clone https://github.com/anjaliparihar97/SensorDataPipeline.git
 cd SensorDataPipeline
 
